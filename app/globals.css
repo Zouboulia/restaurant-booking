@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.SearchFields {
+  height: 30;
+  background-color: white;
+  border: 3px solid #f9fafb;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 1024px;
+}
+
+.SearchItem {
+  display: flex;
+  align-items: center;
+}
+
+.inputField {
+  margin-left: 10px; /* Adjusting spacing between icon and input/text */
+  outline: none; /*to avoid having a box appearing around input text*/
+  color: darkgray;
+}
+
+.searchText {
+  margin-left: 10px; /* Adjusting spacing between icon and input/text */
+  outline: none; /*to avoid having a box appearing around input text*/
+  color: darkgray;
+  cursor: pointer;
+}
+
+.searchIcons {
+  color: grey;
+  width: 30px;
+  height: 30px;
+}
+
+.searchBtn {
+  background-color: darkgray;
+  border: 1px solid pink;
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.date {
+  color: grey;
+  position: absolute;
+  outline: none;
+  top: 50px;
+  left: -180px;
+  z-index: 2;
+}
+
+.table {
+  top: 70px;
+  left: -100px;
+  position: relative;
+  background-color: white;
+  color: darkgray;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.tableItem {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: gray;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+.tableText {
+  margin-right: 10px;
+  outline: none;
+  color: darkgray;
+}
+
+.personsCounter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: black;
+}
+
+.personsCounterBtn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid pink;
+  background-color: lightgray;
+}
