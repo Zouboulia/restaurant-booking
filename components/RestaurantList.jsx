@@ -31,12 +31,18 @@ export default async function RestaurantList() {
             <div>{rest.description}</div>
             <div>{rest.address}</div>
           </div>
-          <div className="flex gap-2">
-            <RemoveRestaurant id={rest._id} />
-            <Link href={`/editRestaurant/${rest._id}`}>
-              <HiPencilAlt size={24} />
-            </Link>
-          </div>
+          {
+            //rest.isAdmin && ( // Only show admin options if the user is an admin
+            <>
+              <div className=" Admin flex gap-2">
+                <RemoveRestaurant id={rest._id} />
+                <Link href={`/editRestaurant/${rest._id}`}>
+                  <HiPencilAlt size={24} />
+                </Link>
+              </div>
+            </>
+            //)
+          }
         </div>
       ))}
     </>

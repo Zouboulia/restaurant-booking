@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-2xl font-bold;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  /* adding base css on layer level for h1 and h2 text */
+}
+
+.Footer {
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: gray;
+  font-size: 12px;
+}
+
 .SearchFields {
   height: 30;
   background-color: white;
@@ -14,11 +34,13 @@
   border-radius: 5px;
   width: 100%;
   max-width: 1024px;
+  z-index: 3; /*to be on top of the images*/
 }
 
 .SearchItem {
   display: flex;
   align-items: center;
+  z-index: 3; /*to be on top of the images*/
 }
 
 .inputField {
@@ -54,7 +76,7 @@
   outline: none;
   top: 50px;
   left: -180px;
-  z-index: 2;
+  z-index: 3; /*to be on top of the images*/
 }
 
 .table {
@@ -64,7 +86,7 @@
   background-color: white;
   color: darkgray;
   border-radius: 5px;
-  z-index: 2;
+  z-index: 3; /*to be on top of the images*/
 }
 
 .tableItem {
@@ -95,4 +117,45 @@
   height: 30px;
   border: 1px solid pink;
   background-color: lightgray;
+}
+
+.homeContainer {
+  display: flex;
+  margin-top: 50px;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.featured {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.featuredItem {
+  position: relative;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.featuredTitles {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 1; /*to be on top of the image*/
+}
+
+.featuredImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0; /*to be behind the text*/
 }

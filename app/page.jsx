@@ -2,6 +2,7 @@
 import Image from "next/image";
 import chefImage from "@public/chef-1417239_1920.png";
 import SearchFields from "@components/SearchFields";
+import Featured from "@components/Featured";
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
         </div>
       </div>
       <SearchFields />
+      <div className="homeContainer">
+        <Featured />
+      </div>
     </>
   );
 }

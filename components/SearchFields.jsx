@@ -4,6 +4,7 @@ import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 import { faBurger, faPerson } from "@fortawesome/free-solid-svg-icons";
 import "./../app/globals.css";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 //importing date picker from react-datepicker and css
 import DatePicker from "react-datepicker";
@@ -21,6 +22,7 @@ export default function SearchFields() {
   //Creating a state for controlling the table dropdown
   const [openTable, setOpenTable] = useState(false);
   const [persons, setPersons] = useState({ persons: 1 });
+  const router = useRouter();
 
   //Function to handle the persons counter
   const handlePersons = (operation) => {
@@ -36,6 +38,12 @@ export default function SearchFields() {
             : prevPersons.persons - 1,
       };
     });
+  };
+
+  //Function to handle the search button
+  const handleSearch = () => {
+    //Navigate to the showRestaurants page with the query params
+    router.push("/showRestaurants");
   };
 
   return (
@@ -95,7 +103,9 @@ export default function SearchFields() {
         )}
       </div>
       <div className="SearchItem">
-        <button className="searchBtn"> Search </button>
+        <button className="searchBtn" onClick={handleSearch}>
+          Search
+        </button>
       </div>
     </div>
   );

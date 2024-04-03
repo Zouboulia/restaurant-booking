@@ -26,9 +26,9 @@ export default function EditRestaurantForm({ id, name, description, address }) {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              name: newName,
-              description: newDescription,
-              address: newAddress,
+              newName,
+              newDescription,
+              newAddress,
             }),
           }
         );
@@ -37,7 +37,7 @@ export default function EditRestaurantForm({ id, name, description, address }) {
           throw new Error("Could not update restaurant");
         }
         router.refresh();
-        router.push("/restaurants");
+        router.push("/showRestaurants");
       } catch (error) {
         console.log("Error while updating restaurant : ", error);
       }
@@ -49,7 +49,7 @@ export default function EditRestaurantForm({ id, name, description, address }) {
       <input
         onChange={(e) => setNewName(e.target.value)}
         value={newName}
-        className="border boder-slate-600 px-8 py-2"
+        className="border border-slate-600 px-8 py-2"
         type="text"
         placeholder="Restaurant name"
       />
