@@ -43,7 +43,7 @@ export default function SearchFields() {
   //Function to handle the search button
   const handleSearch = () => {
     //Navigate to the showRestaurants page with the query params
-    router.push("/showRestaurants");
+    router.push("/showRestaurantList");
   };
 
   return (

@@ -7,10 +7,10 @@ export default function EditRestaurantForm({ id, name, description, address }) {
   const [newDescription, setNewDescription] = useState(description);
   const [newAddress, setNewAddress] = useState(address);
 
-  const router = useRouter();
+  const router = useRouter(); //this will be used to refresh the page after updating the restaurant
 
   const updateRestaurant = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); //Prevent the default form submission in order to use fetch
 
     const confirmUpdate = confirm(
       "Are you sure you want to update this restaurant?"
@@ -37,7 +37,7 @@ export default function EditRestaurantForm({ id, name, description, address }) {
           throw new Error("Could not update restaurant");
         }
         router.refresh();
-        router.push("/showRestaurants");
+        router.push("/showRestaurantsAdmin");
       } catch (error) {
         console.log("Error while updating restaurant : ", error);
       }
