@@ -159,3 +159,38 @@
   left: 0;
   z-index: 0; /*to be behind the text*/
 }
+
+.listContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.listWrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1024px;
+  gap: 20px;
+}
+
+.listSearch {
+  flex: 1;
+  align-self: flex-start;
+  padding: 10px;
+  background-color: peachpuff;
+  border-radius: 10px;
+  position: sticky;
+  top: 10px;
+  height: max-content;
+}
+
+.lsTitle {
+  color: darkgrey;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.listResults {
+  flex: 3;
+}

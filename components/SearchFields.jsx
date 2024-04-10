@@ -18,11 +18,13 @@ export default function SearchFields() {
   //Creating a state for controlling the date picker
   const [openDatePicker, setOpenDatePicker] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const [cuisine, setCuisine] = useState("");
 
-  //Creating a state for controlling the table dropdown
   const [openTable, setOpenTable] = useState(false);
   const [persons, setPersons] = useState({ persons: 1 });
+
   const router = useRouter();
+  //const navigate = useNavigate();
 
   //Function to handle the persons counter
   const handlePersons = (operation) => {
@@ -42,15 +44,24 @@ export default function SearchFields() {
 
   //Function to handle the search button
   const handleSearch = () => {
-    //Navigate to the showRestaurants page with the query params
-    router.push("/showRestaurantList");
+    const queryParams = new URLSearchParams({
+      cuisine,
+      startDate: startDate.toISOString(), // Convert date to ISO string for compatibility so it can be passed as a query param
+      persons,
+    }).toString();
+    router.push(`/showRestaurantList?${queryParams}`);
   };
 
   return (
     <div className="SearchFields ">
       <div className="SearchItem">
         <FontAwesomeIcon className="searchIcons" icon={faBurger} />
-        <input type="text" className="inputField" placeholder="Cuisine type" />
+        <input
+          type="text"
+          className="inputField"
+          placeholder="Cuisine type"
+          onClick={() => setCuisine(cuisine)}
+        />
       </div>
       <div className="SearchItem">
         <FontAwesomeIcon className="searchIcons" icon={faCalendarDays} />
@@ -58,14 +69,13 @@ export default function SearchFields() {
           onClick={() => setOpenDatePicker(!openDatePicker)}
           className="searchText"
         >
-          {`${format(startDate, "MM/dd/yyyy hh:mm a")}`}
+          {`${format(startDate, "MM/dd/yyyy hh:mm")}`}
         </span>
         {/* Date Picker set to openDate true */}
         {openDatePicker && (
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            showTimeSelect
             dateFormat="Pp"
             className="date"
           />
@@ -82,7 +92,7 @@ export default function SearchFields() {
               <span className="tableText"> Persons</span>
               <div className="personsCounter">
                 <button
-                  onClick={() => handlePersons("decrease")}
+                  onClick={() => handlePersons("decrease")} // Decrease the number of persons if - button is clicked
                   className="personsCounterBtn"
                 >
                   -
@@ -92,7 +102,7 @@ export default function SearchFields() {
                   {persons.persons}{" "}
                 </span>
                 <button
-                  onClick={() => handlePersons("increase")}
+                  onClick={() => handlePersons("increase")} // Increase the number of persons if + button is clicked
                   className="personsCounterBtn"
                 >
                   +
@@ -104,6 +114,8 @@ export default function SearchFields() {
       </div>
       <div className="SearchItem">
         <button className="searchBtn" onClick={handleSearch}>
+          {" "}
+          {/*all the handleSearch function on button click*/}
           Search
         </button>
       </div>

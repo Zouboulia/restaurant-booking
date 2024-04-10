@@ -4,12 +4,12 @@ import RestaurantList from "@components/RestaurantList";
 
 export default function ShowRestaurantList() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col ">
       {/* Margin bottom for spacing between image and List of Restaurants*/}
-      <div className="mb-10">
+      <div className="mb-10 flex flex-col items-center">
         <Image src={chefImage} alt="Chef Image" width={500} height={500} />
       </div>
-      <div>
+      <div className="w-full max-w-80">
         <RestaurantList />
       </div>
     </div>

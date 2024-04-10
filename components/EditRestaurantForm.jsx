@@ -7,7 +7,7 @@ export default function EditRestaurantForm({ id, name, description, address }) {
   const [newDescription, setNewDescription] = useState(description);
   const [newAddress, setNewAddress] = useState(address);
 
-  const router = useRouter(); //this will be used to refresh the page after updating the restaurant
+  const router = useRouter();
 
   const updateRestaurant = async (e) => {
     e.preventDefault(); //Prevent the default form submission in order to use fetch
