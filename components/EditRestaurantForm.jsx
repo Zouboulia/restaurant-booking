@@ -38,6 +38,7 @@ export default function EditRestaurantForm({ id, name, description, address }) {
         }
         router.refresh();
         router.push("/showRestaurantsAdmin");
+        router.refresh();
       } catch (error) {
         console.log("Error while updating restaurant : ", error);
       }

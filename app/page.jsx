@@ -8,8 +8,9 @@ export default function Home() {
   return (
     <>
       <div>
-        {" "}
-        <p> HOME PAGE </p>
+        <h1 className="text-2xl text-center font-bold text-gray-400">
+          Welcome to Rest'O Bookings
+        </h1>
       </div>
       {/* Flex container */}
       <div className="flex flex-col items-center">

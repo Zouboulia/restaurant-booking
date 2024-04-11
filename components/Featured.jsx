@@ -3,6 +3,7 @@ import Image from "next/image";
 import "./../app/globals.css";
 import Rest1 from "./../public/platter-2009590_1280.jpg";
 
+//Featured component to display featured restaurants on the home page
 const Featured = () => {
   return (
     <div className="featured">
