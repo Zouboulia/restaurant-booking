@@ -1,4 +1,4 @@
-import connectMongoDB from "@libs/mongodb";
+//import connectMongoDB from "@libs/mongodb";
 import { NextResponse } from "next/server";
 import Restaurant from "@models/restaurants";
 
@@ -9,7 +9,7 @@ export async function PUT(request, { params }) {
     newDescription: description,
     newAddress: address,
   } = await request.json();
-  await connectMongoDB();
+  //await connectMongoDB();
   await Restaurant.findByIdAndUpdate(id, { name, description, address });
   return NextResponse.json({ message: "Restaurant updated" }, { status: 200 });
 }
@@ -17,7 +17,7 @@ export async function PUT(request, { params }) {
 //this is to get a single restaurant from the database by its id
 export async function GET(request, { params }) {
   const { id } = params;
-  await connectMongoDB();
+  //await connectMongoDB();
   const restaurant = await Restaurant.findOne({ _id: id });
   return NextResponse.json({ restaurant }, { status: 200 });
 }

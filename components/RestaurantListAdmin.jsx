@@ -41,7 +41,6 @@ export default async function RestaurantListAdmin() {
                 </Link>
               </div>
             </>
-            //)
           }
         </div>
       ))}

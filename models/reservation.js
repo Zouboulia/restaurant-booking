@@ -2,6 +2,8 @@ import mongoose, { Schema } from "mongoose";
 
 const reservationSchema = new Schema(
   {
+    //reference the Restaurant model so we can populate the restaurant information when fetching the reservation
+    restaurant: { type: Schema.Types.ObjectId, ref: "Restaurant" },
     restaurantID: String,
     date: Date,
     time: String,

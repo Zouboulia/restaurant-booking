@@ -48,14 +48,20 @@ export default async function RestaurantList() {
             key={rest._id}
             className="border-slate-300 my-3  px-10 flex justify-between items-center"
           >
-            <h2 className="font-bold text-2xl">{rest.name}</h2>
-            <button
-              className="outline outline-1 bg-slate-400 text-white py-3  rounded-md"
-              onClick={() => makeReservation(rest._id)}
-              style={{ minWidth: "180px" }}
-            >
-              Make Reservation
-            </button>
+            <div className="border-slate-300 max-w-xl flex flex-col">
+              <h2 className="font-bold text-2xl">{rest.name}</h2>
+              <div>{rest.description}</div>
+              <div>{rest.address}</div>
+            </div>
+            <>
+              <button
+                className="outline outline-1 bg-slate-400 text-white py-3  rounded-md"
+                onClick={() => makeReservation(rest._id)}
+                style={{ minWidth: "180px" }}
+              >
+                Make Reservation
+              </button>
+            </>
           </div>
         ))}
       </div>

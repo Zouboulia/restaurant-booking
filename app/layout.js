@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@components/Navbar.jsx";
 import Footer from "@components/Footer";
+import connectMongoDB from "@libs/mongodb";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +13,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  //connect to the MongoDB database when the layout is rendered so database can be used in the components
+  connectMongoDB();
   return (
     <html lang="en">
       <body className={inter.className}>

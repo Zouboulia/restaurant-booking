@@ -9,7 +9,7 @@ export default function ShowReservationList() {
       <div className="mb-10 flex flex-col items-center">
         <Image src={chefImage} alt="Chef Image" width={500} height={500} />
       </div>
-      <div className="w-full max-w-80">
+      <div className="w-full">
         <ReservationList />
       </div>
     </div>

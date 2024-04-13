@@ -29,7 +29,21 @@ export default async function ReservationList() {
           className="p-4 border-slate-300 my-3 flex justify-between gap-5 items-start"
         >
           <div>
-            <h2 className="font-bold text-2xl">{reservation.restaurantID}</h2>
+            <h2 className="font-bold text-2xl">Your reservation details: </h2>
+            <h2 className=" text-xl">
+              Reservation ID: {reservation.restaurantID}
+            </h2>
+            {/*Fetch the restaurant name*/}
+            <h3 className=" text-xl">
+              {reservation.restaurant
+                ? reservation.restaurant.name
+                : "Restaurant Name Not Available at time of booking"}
+            </h3>
+            <h3 className=" text-xl">Date: {reservation.date}</h3>
+            <h3 className=" text-xl">Time: {reservation.time}</h3>
+            <h3 className=" text-xl">Persons: {reservation.persons}</h3>
+            <h3 className=" text-xl">User Name: {reservation.userName}</h3>
+            <h3 className=" text-xl">Phone: {reservation.phone}</h3>
           </div>
         </div>
       ))}

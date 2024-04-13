@@ -1,15 +1,17 @@
-import connectMongoDB from "@libs/mongodb";
 import Reservation from "@models/reservation";
 import { NextResponse } from "next/server";
+import Restaurant from "@models/restaurants";
 
 // create an export async function POST to handle the POST request from the client for creating a new restaurant
 export async function POST(request) {
   //destructure the name, description, and address from the request body with await request.json()
   const { restaurantID, date, time, persons, userName, phone } =
     await request.json();
-  await connectMongoDB(); //await here because we are calling an async function
+
+  const restaurant = await Restaurant.findById(restaurantID); //find the restaurant by the ID
   await Reservation.create({
     restaurantID,
+    restaurant,
     date,
     time,
     persons,
@@ -21,7 +23,6 @@ export async function POST(request) {
 
 // create an export async function GET to handle the GET request from the client for fetching all the reservations
 export async function GET() {
-  await connectMongoDB();
-  const reservation = await Reservation.find();
-  return NextResponse.json({ reservation });
+  const reservations = await Reservation.find().populate("restaurant");
+  return NextResponse.json({ reservation: reservations });
 }
