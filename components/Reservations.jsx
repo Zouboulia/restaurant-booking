@@ -35,6 +35,7 @@ export default async function ReservationList() {
             </h2>
             {/*Fetch the restaurant name*/}
             <h3 className=" text-xl">
+              Restaurant name: {/* this adds a space*/}
               {reservation.restaurant
                 ? reservation.restaurant.name
                 : "Restaurant Name Not Available at time of booking"}

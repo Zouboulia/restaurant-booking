@@ -69,14 +69,17 @@ export default function SearchFields() {
           onClick={() => setOpenDatePicker(!openDatePicker)}
           className="searchText"
         >
-          {`${format(startDate, "MM/dd/yyyy hh:mm")}`}
+          {`${format(startDate, "MM/dd/yyyy hh:mm aa")}`}
         </span>
         {/* Date Picker set to openDate true */}
         {openDatePicker && (
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            dateFormat="Pp"
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={30} // This sets an interval between each time option available to users (in minutes)
+            dateFormat="MM/dd/yyyy HH:mm" // Updated the format to include both date and time
             className="date"
           />
         )}
@@ -115,7 +118,7 @@ export default function SearchFields() {
       <div className="SearchItem">
         <button className="searchBtn" onClick={handleSearch}>
           {" "}
-          {/*all the handleSearch function on button click*/}
+          {/*call the handleSearch function on button click*/}
           Search
         </button>
       </div>
