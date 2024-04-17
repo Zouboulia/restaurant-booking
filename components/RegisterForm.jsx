@@ -10,6 +10,7 @@ export default function RegisterForm() {
   const router = useRouter();
 
   async function handleSubmit(event) {
+    event.preventDefault();
     if (!name || !email || !password) {
       alert("Please fill in all fields");
       return;
@@ -23,7 +24,10 @@ export default function RegisterForm() {
         body: JSON.stringify({ name, email, password }),
       });
       if (response.ok) {
-        router.push("/#");
+        router.push("/login"); // if the response is ok, send user to login page
+      } else if (response.status === 409) {
+        //if the response is 409, alert the user that the user already exists as email address is a duplicate
+        alert("User already exists");
       } //if the response is ok, send to login page
     } catch (error) {
       console.log("Error while creating user : ", error);

@@ -21,11 +21,10 @@ export async function POST(req) {
     return NextResponse.json({ message: "Duplicate Email" }, { status: 409 });
   }
 
-  // const hashPassword = await bcrypt.hash(userData.password, 10);
-  // userData.password = hashPassword;
+  //hashing the password before storing it
+  const hashPassword = await bcrypt.hash(password, 10); //10 is the salt rounds (how many times the password is hashed)
 
-  console.warn("nlkjljmlk.");
-  await User.create({ name, email, password });
+  await User.create({ name, email, password: hashPassword });
   console.warn("User Created.");
 
   return NextResponse.json({ message: "User Created." }, { status: 201 });

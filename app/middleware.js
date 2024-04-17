@@ -1,23 +1,9 @@
-// import { withAuth } from "next-auth/middleware";
-// import { NextResponse } from "next/server";
+import NextAuth from "next-auth";
+import { authConfig } from "./auth.config";
 
-// export default withAuth(
-//   function middleware(req) {
-//     console.log(req.nextUrl.pathname);
-//     console.log(req.nextauth.token.role);
+export default NextAuth(authConfig).auth;
 
-//     if (
-//       req.nextUrl.pathname.startsWith("/register") &&
-//       req.nextauth.token.role != "admin"
-//     ) {
-//       return NextResponse.rewrite(new URL("/#", req.url));
-//     }
-//   },
-//   {
-//     callbacks: {
-//       authorized: ({ token }) => !!token,
-//     },
-//   }
-// );
-
-// export const config = { matcher: ["/register"] };
+export const config = {
+  // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+  matcher: [""],
+};
