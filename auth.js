@@ -3,7 +3,12 @@ import { authConfig } from "./auth.config";
 import User from "@models/users";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const { auth, signIn, signOut } = NextAuth({
+export const {
+  auth,
+  signIn,
+  signOut,
+  handlers: { GET, POST },
+} = NextAuth({
   ...authConfig,
   providers: [
     CredentialsProvider({

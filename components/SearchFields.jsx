@@ -24,7 +24,6 @@ export default function SearchFields() {
   const [persons, setPersons] = useState({ persons: 1 });
 
   const router = useRouter();
-  //const navigate = useNavigate();
 
   //Function to handle the persons counter
   const handlePersons = (operation) => {

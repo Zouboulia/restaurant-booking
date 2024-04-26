@@ -1,6 +1,7 @@
 "use client";
 import "react-datepicker/dist/react-datepicker.css";
 
+// Create a function to fetch the list of restaurants from the server
 export default async function RestaurantList() {
   const getRestaurants = async () => {
     try {
@@ -17,6 +18,7 @@ export default async function RestaurantList() {
     }
   };
 
+  // Create a function to make a reservation and pass the restaurant ID as a parameter to link the reservation to the restaurant
   const makeReservation = async (restaurantID) => {
     try {
       const response = await fetch("api/reservations", {
@@ -39,7 +41,10 @@ export default async function RestaurantList() {
     }
   };
 
+  // Fetch the list of restaurants
   const { restaurants } = await getRestaurants();
+
+  // Display the list of restaurants and a button to make a reservation
   return (
     <div className="w-full flex justify-center">
       <div className="max-w-screen-lg flex flex-col w-full">

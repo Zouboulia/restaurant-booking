@@ -23,11 +23,16 @@ export default function LoginPage() {
     });
 
     if (response.ok) {
-      router.push("/#"); // Redirect to the home page if the login is successful
+      router.push("/"); // Redirect to the home page if the login is successful
     } else {
       // Handle errors if the login is unsuccessful
       const error = await response.json();
       console.log(error.error);
+      // Show an alert with the error message to the user
+      alert(
+        "An error occurred. Please check your email and password.",
+        error.error
+      );
     }
   }
 

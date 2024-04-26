@@ -160,7 +160,7 @@
   z-index: 0; /*to be behind the text*/
 }
 
-.listContainer {
+/* .listContainer {
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -189,4 +189,4 @@
   font-size: 20px;
   padding: 10px;
   margin-bottom: 10px;
-}
+} */

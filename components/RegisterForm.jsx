@@ -3,6 +3,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function RegisterForm() {
+  //create states for name, email and password
+  //the useState hook is used to create a state variable and a function to update the state variable
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +18,7 @@ export default function RegisterForm() {
       return;
     } //if any of the fields are empty, alert the user and return
     try {
+      // Send a POST request to the server with the name, email and password from the form
       const response = await fetch("/api/users", {
         method: "POST",
         headers: {
@@ -28,7 +31,7 @@ export default function RegisterForm() {
       } else if (response.status === 409) {
         //if the response is 409, alert the user that the user already exists as email address is a duplicate
         alert("User already exists");
-      } //if the response is ok, send to login page
+      }
     } catch (error) {
       console.log("Error while creating user : ", error);
     }

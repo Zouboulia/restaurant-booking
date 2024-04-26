@@ -1,5 +1,6 @@
 import EditRestaurantForm from "@components/EditRestaurantForm";
 
+//This function fetches the restaurant by id from the database and returns the restaurant details
 const getRestaurantById = async (id) => {
   try {
     const response = await fetch(
@@ -16,6 +17,7 @@ const getRestaurantById = async (id) => {
   }
 };
 
+//This function returns the EditRestaurantForm component with the restaurant details
 export default async function EditRestaurant({ params }) {
   const { id } = params;
   const { restaurant } = await getRestaurantById(id);

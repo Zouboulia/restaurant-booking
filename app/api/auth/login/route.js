@@ -1,8 +1,12 @@
+"use client";
+
 import { signIn } from "@app/../auth";
 import User from "@models/users";
 import { NextResponse } from "next/server";
-import bcrypt from "bcrypt";
+export { GET } from "@/auth";
+import bcrypt from "bcrypt"; //import bcrypt for password hashing
 
+//create a new POST function to handle the login request from the client
 export async function POST(req) {
   try {
     const { email, password } = await req.json();
@@ -14,7 +18,7 @@ export async function POST(req) {
         { status: 401 }
       );
     }
-    // Verify password
+    // Verify password with bcrypt
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
       return NextResponse.json(

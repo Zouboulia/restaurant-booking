@@ -12,7 +12,6 @@ export async function POST(request) {
 }
 
 export async function GET() {
-  //await connectMongoDB();
   const restaurants = await Restaurant.find(); //find all the restaurants in the database
   return NextResponse.json({ restaurants }); //return a JSON response with the restaurants to the client
 }

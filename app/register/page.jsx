@@ -8,7 +8,6 @@ export default function Register() {
           Welcome to Rest'O Bookings
         </h1>
       </div>
-      <div className="flex flex-col items-center">Register here</div>
       <div>
         {" "}
         <RegisterForm />{" "}
