@@ -36,6 +36,7 @@ export default function LoginPage() {
     }
   }
 
+  // Display the login form with email and password fields
   return (
     <form onSubmit={handleSubmit} className="flex flex-col items-center">
       <input

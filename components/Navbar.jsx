@@ -7,11 +7,13 @@ import { getServerSession } from "next-auth";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); //create a useState hook to toggle the menu on small screens
+  //the useState hook was added by the developer and was not present in he initial code snippet that was used to create the navbar
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   //const session = getServerSession(options);
 
+  //This is the navbar component that will be displayed on the top of the page, it contains the logo, app name and the navigation links
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

@@ -37,6 +37,7 @@ export default function RegisterForm() {
     }
   }
 
+  // Display the registration form with name, email and password fields
   return (
     <form className="flex flex-col items-center" onSubmit={handleSubmit}>
       <input

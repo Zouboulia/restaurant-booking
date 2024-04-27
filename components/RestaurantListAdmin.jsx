@@ -2,6 +2,7 @@ import RemoveRestaurant from "./RemoveRestaurant";
 import Link from "next/link";
 import { HiPencilAlt } from "react-icons/hi";
 
+// Create a function to fetch the restaurants from the server
 const getRestaurants = async () => {
   try {
     const response = await fetch("http://localhost:3000/api/restaurants", {
@@ -17,6 +18,7 @@ const getRestaurants = async () => {
   }
 };
 
+// Create a component to display the list of restaurants to admins
 export default async function RestaurantListAdmin() {
   const { restaurants } = await getRestaurants();
   return (
@@ -33,6 +35,7 @@ export default async function RestaurantListAdmin() {
           </div>
           {
             //rest.isAdmin && ( // Only show admin options if the user is an admin
+            // Pass the restaurant id as a prop to the RemoveRestaurant component to delete the restaurant
             <>
               <div className=" Admin flex gap-2">
                 <RemoveRestaurant id={rest._id} />

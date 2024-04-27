@@ -1,5 +1,6 @@
 import React from "react";
 
+// Create a footer component that displays the current year using the Date object in JavaScript
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
